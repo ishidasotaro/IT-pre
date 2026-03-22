@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シンプルデモ - HTML作業者向け</title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 シンプルデモページ</h1>
+            <p><strong>HTML作業者向け：</strong>JavaScriptの関数を呼び出すだけでデータベース操作ができます！</p>
+        </div>
+
+        <div class="highlight">
+            <h3>💡 使い方</h3>
+            <p>下記のボタンを押すだけで、データベースからデータを取得・表示できます。<br>
+            コードをコピーして、あなたのプロジェクトで使用してください！</p>
+        </div>
+
+        <div class="grid">
+            <!-- ユーザー一覧表示 -->
+            <div class="card">
+                <h3>👥 ユーザー一覧表示</h3>
+                <p>データベースからユーザー情報を取得して表示します。</p>
+                <button class="btn" onclick="showUsers('users-display')">ユーザー一覧を表示</button>
+                <div id="users-display" style="margin-top: 15px;"></div>
+                
+                <div class="code-example">
+// HTML作業者向けのコード例
+&lt;button onclick="showUsers('users-display')"&gt;ユーザー一覧&lt;/button&gt;
+&lt;div id="users-display"&gt;&lt;/div&gt;
+
+&lt;script src="/assets/js/demo.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+
+            <!-- 新規ユーザー登録 -->
+            <div class="card">
+                <h3>➕ 新規ユーザー登録</h3>
+                <form id="user-form">
+                    <div class="form-group">
+                        <label for="user-name">名前:</label>
+                        <input type="text" name="name" id="user-name" required placeholder="田中太郎">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-email">メールアドレス:</label>
+                        <input type="email" name="email" id="user-email" required placeholder="tanaka@example.com">
+                    </div>
+                    <button type="button" class="btn" onclick="addUserFromForm('user-form', 'user-status')">ユーザー登録</button>
+                </form>
+                <div id="user-status" style="margin-top: 15px;"></div>
+                
+                <div class="code-example">
+// ユーザー登録のコード例
+&lt;form id="user-form"&gt;
+    &lt;input type="text" name="name" placeholder="名前" required&gt;
+    &lt;input type="email" name="email" placeholder="メール" required&gt;
+    &lt;button onclick="addUserFromForm('user-form', 'user-status')"&gt;登録&lt;/button&gt;
+&lt;/form&gt;
+&lt;div id="user-status"&gt;&lt;/div&gt;
+
+&lt;script src="/assets/js/demo.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+
+            <!-- 投稿一覧表示 -->
+            <div class="card">
+                <h3>📝 投稿一覧表示</h3>
+                <p>データベースから投稿情報を取得して表示します。</p>
+                <button class="btn" onclick="showPosts('posts-display')">投稿一覧を表示</button>
+                <div id="posts-display" style="margin-top: 15px;"></div>
+                
+                <div class="code-example">
+// 投稿一覧表示のコード例
+&lt;button onclick="showPosts('posts-display')"&gt;投稿一覧&lt;/button&gt;
+&lt;div id="posts-display"&gt;&lt;/div&gt;
+
+&lt;script src="/assets/js/demo.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+
+            <!-- 新規投稿作成 -->
+            <div class="card">
+                <h3>✍️ 新規投稿作成</h3>
+                <form id="post-form">
+                    <div class="form-group">
+                        <label for="post-user-id">投稿者ID:</label>
+                        <input type="number" name="user_id" id="post-user-id" value="1" required>
+                        <small>※ 実際の開発では、ログインユーザーのIDを使用</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-title">タイトル:</label>
+                        <input type="text" name="title" id="post-title" required placeholder="今日の出来事">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">内容:</label>
+                        <textarea name="content" id="post-content" rows="3" placeholder="楽しい一日でした"></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="addPostFromForm('post-form', 'post-status')">投稿作成</button>
+                </form>
+                <div id="post-status" style="margin-top: 15px;"></div>
+                
+                <div class="code-example">
+// 投稿作成のコード例
+&lt;form id="post-form"&gt;
+    &lt;input type="number" name="user_id" value="1" required&gt;
+    &lt;input type="text" name="title" placeholder="タイトル" required&gt;
+    &lt;textarea name="content" placeholder="内容"&gt;&lt;/textarea&gt;
+    &lt;button onclick="addPostFromForm('post-form', 'post-status')"&gt;投稿&lt;/button&gt;
+&lt;/form&gt;
+&lt;div id="post-status"&gt;&lt;/div&gt;
+
+&lt;script src="/assets/js/demo.js"&gt;&lt;/script&gt;
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>🎯 HTML作業者向けのポイント</h3>
+            <ul>
+                <li><strong>PHPは不要</strong>: <code>/assets/js/demo.js</code> を読み込むだけ</li>
+                <li><strong>関数呼び出し</strong>: <code>onclick="showUsers('target-id')"</code> で簡単操作</li>
+                <li><strong>自動表示</strong>: 結果は自動的に指定した場所に表示される</li>
+                <li><strong>フォーム処理</strong>: <code>addUserFromForm()</code> で簡単送信</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <h3>📋 完全なHTMLサンプル</h3>
+            <div class="code-example">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;あなたのプロジェクト&lt;/title&gt;
+    &lt;link rel="stylesheet" href="/assets/css/main.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;ユーザー管理&lt;/h1&gt;
+        
+        &lt;!-- ユーザー一覧表示ボタン --&gt;
+        &lt;button onclick="showUsers('user-list')"&gt;ユーザー一覧表示&lt;/button&gt;
+        &lt;div id="user-list"&gt;&lt;/div&gt;
+        
+        &lt;!-- ユーザー登録フォーム --&gt;
+        &lt;form id="register-form"&gt;
+            &lt;input type="text" name="name" placeholder="名前" required&gt;
+            &lt;input type="email" name="email" placeholder="メール" required&gt;
+            &lt;button type="button" onclick="addUserFromForm('register-form', 'result')"&gt;登録&lt;/button&gt;
+        &lt;/form&gt;
+        &lt;div id="result"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- 重要：このファイルを読み込む --&gt;
+    &lt;script src="/assets/js/demo.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="index.php" style="display: inline-block; background: #007bff; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 0 10px;">🏠 メインページ</a>
+            <a href="hello.html" style="display: inline-block; background: #28a745; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 0 10px;">🌐 HTMLサンプル</a>
+            <a href="sample.php" style="display: inline-block; background: #6f42c1; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin: 0 10px;">🐘 PHP学習</a>
+        </div>
+    </div>
+
+    <!-- シンプルJavaScriptライブラリを読み込み -->
+    <script src="/assets/js/demo.js"></script>
+</body>
+</html>
