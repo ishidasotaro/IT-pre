@@ -21,7 +21,7 @@ if (empty($post_id)) {
 }
 
 // 投稿情報を取得
-$post_sql = "SELECT p.*, u.name AS user_name, t.name AS topic_name, u.posse_group
+$post_sql = "SELECT p.*, u.name AS user_name, t.name AS topic_name, u.user_group
              FROM posts p
              JOIN users u ON p.user_id = u.id
              LEFT JOIN topics t ON p.topic_id = t.id

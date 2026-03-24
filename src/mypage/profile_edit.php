@@ -14,7 +14,7 @@ $errors = [];
 $message = '';
 
 // ユーザー情報を取得
-$user_sql = "SELECT name, email, posse_group FROM users WHERE id = :user_id";
+$user_sql = "SELECT name, email, user_group FROM users WHERE id = :user_id";
 $user_stmt = $pdo->prepare($user_sql);
 $user_stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 $user_stmt->execute();
@@ -24,12 +24,12 @@ $user = $user_stmt->fetch(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new_name = trim($_POST['name']);
     $new_email = trim($_POST['email']);
-    $new_posse_group = $_POST['posse_group'];
+    $new_user_group = $_POST['user_group'];
     $new_password = trim($_POST['password']);
     
     // バリデーション
-    if (empty($new_name) || empty($new_email) || empty($new_posse_group)) {
-        $errors[] = 'ユーザー名、メール、所属POSSEは必須項目です。';
+    if (empty($new_name) || empty($new_email) || empty($new_user_group)) {
+        $errors[] = 'ユーザー名、メール、所属グループは必須項目です。';
     }
     if (!filter_var($new_email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = '正しいメールアドレスを入力してください。';
@@ -60,18 +60,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             if ($hashed_password) {
                 // パスワードも更新する場合
-                $update_sql = "UPDATE users SET name = :name, email = :email, password = :password, posse_group = :posse_group WHERE id = :user_id";
+                $update_sql = "UPDATE users SET name = :name, email = :email, password = :password, user_group = :user_group WHERE id = :user_id";
                 $update_stmt = $pdo->prepare($update_sql);
                 $update_stmt->bindValue(':password', $hashed_password, PDO::PARAM_STR);
             } else {
                 // パスワードを更新しない場合
-                $update_sql = "UPDATE users SET name = :name, email = :email, posse_group = :posse_group WHERE id = :user_id";
+                $update_sql = "UPDATE users SET name = :name, email = :email, user_group = :user_group WHERE id = :user_id";
                 $update_stmt = $pdo->prepare($update_sql);
             }
             
             $update_stmt->bindValue(':name', $new_name, PDO::PARAM_STR);
             $update_stmt->bindValue(':email', $new_email, PDO::PARAM_STR);
-            $update_stmt->bindValue(':posse_group', $new_posse_group, PDO::PARAM_STR);
+            $update_stmt->bindValue(':user_group', $new_user_group, PDO::PARAM_STR);
             $update_stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             $update_stmt->execute();
 
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = 'プロフィールが更新されました！';
             
             // ユーザー情報を再取得してフォームを更新
-            $user_sql = "SELECT name, email, posse_group FROM users WHERE id = :user_id";
+            $user_sql = "SELECT name, email, user_group FROM users WHERE id = :user_id";
             $user_stmt = $pdo->prepare($user_sql);
             $user_stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             $user_stmt->execute();
@@ -139,13 +139,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="email" class="block font-semibold text-gray-500 text-sm mb-1">メールアドレス</label>
                 <input type="email" id="email" name="email" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100" value="<?php echo htmlspecialchars($user['email']); ?>" required>
             </div>
-            <!-- 所属POSSE -->
+            <!-- 所属グループ -->
             <div class="mb-4">
-                <label for="posse_group" class="block font-semibold text-gray-500 text-sm mb-1">所属POSSE</label>
-                <select name="posse_group" id="posse_group" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100" required>
-                    <option value="POSSE_1" <?php echo ($user['posse_group'] == 'POSSE_1') ? 'selected' : ''; ?>>POSSE ①</option>
-                    <option value="POSSE_2" <?php echo ($user['posse_group'] == 'POSSE_2') ? 'selected' : ''; ?>>POSSE ②</option>
-                    <option value="POSSE_3" <?php echo ($user['posse_group'] == 'POSSE_3') ? 'selected' : ''; ?>>POSSE ③</option>
+                <label for="user_group" class="block font-semibold text-gray-500 text-sm mb-1">所属グループ</label>
+                <select name="user_group" id="user_group" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100" required>
+                    <option value="user_group_1" <?php echo ($user['user_group'] == 'user_group_1') ? 'selected' : ''; ?>>user_group①</option>
+                    <option value="user_group_2" <?php echo ($user['user_group'] == 'user_group_2') ? 'selected' : ''; ?>>user_group②</option>
+                    <option value="user_group_3" <?php echo ($user['user_group'] == 'user_group_3') ? 'selected' : ''; ?>>user_group③</option>
                 </select>
             </div>
             <!-- パスワード（任意） -->

@@ -29,7 +29,7 @@ if ($topic_id) {
   $sql .= " WHERE p.topic_id = :topic_id";
 }
 
-$sql .= " GROUP BY p.id, p.user_id, p.title, p.content, p.photo_path, p.topic_id, p.created_at, u.name, t.name";
+$sql .= " user_group BY p.id, p.user_id, p.title, p.content, p.photo_path, p.topic_id, p.created_at, u.name, t.name";
 
 if ($sort_order === 'likes') {
   $sql .= " ORDER BY reaction_count DESC";
@@ -98,7 +98,7 @@ $topics = $pdo->query("SELECT id, name FROM topics ORDER BY id")->fetchAll(PDO::
           </option>
         <?php endforeach; ?>
       </select>
-      <div class="input-group">
+      <div class="input-user_group">
         <label for="sort"></label>
         <select name="sort" id="sort" class="input">
           <option value="new" <?php echo ($sort_order === 'new') ? 'selected' : ''; ?>>新しい順</option>
