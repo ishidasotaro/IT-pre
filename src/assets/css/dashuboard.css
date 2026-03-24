@@ -50,7 +50,7 @@ a {
     width: 90px;
     height: auto;
     margin-top: 10px;
-    background-color: transparent;  /* ロゴが上に寄りすぎないように調整 */
+    background-color: transparent; /* ロゴが上に寄りすぎないように調整 */
 }
 
 /* メニューの設定 */
@@ -62,7 +62,7 @@ a {
 .menu-list {
     list-style: none;
     display: flex;
-    justify-content: flex-end;  /* メニューアイテムを右寄せ */
+    justify-content: flex-end; /* メニューアイテムを右寄せ */
     align-items: center; /* アイテムを垂直中央に配置 */
     padding: 0;
     margin: 0;
@@ -80,8 +80,8 @@ a {
     display: inline-block;
     list-style: none;
 }
-.record .mypage .usage .logout{
-    width:320px;
+.record .mypage .usage .logout {
+    width: 320px;
 }
 
 .menu-list li a {
@@ -108,7 +108,7 @@ a {
 
 /* メニューアイコンのスタイル */
 .menu-list li a img {
-    width: 24px;  /* アイコン画像のサイズ */
+    width: 24px; /* アイコン画像のサイズ */
     height: 24px;
     margin-bottom: 4px;
     object-fit: cover;
@@ -153,7 +153,7 @@ a {
     .menu-container {
         position: absolute;
         right: 60px;
-        top:10px
+        top: 10px;
     }
 
     /* メニューリストはデフォルトで隠し、クリックで表示 */
@@ -161,7 +161,7 @@ a {
         display: none;
         position: absolute;
         top: 60px;
-        right: 0;/* 背景を透明にする */
+        right: 0; /* 背景を透明にする */
         width: 100%;
     }
 
@@ -185,11 +185,10 @@ a {
 
 .timeline {
     padding-left: 10px;
-    color: #2196F3;
+    color: #2196f3;
     font-size: 18px;
     margin: 0;
 }
-
 
 .pagehead {
     background: #f0f9ff;
@@ -232,7 +231,6 @@ a {
     color: #0284c7;
 }
 
-
 .toolbar {
     border-bottom: 1px solid #bae6fd;
     background: #f0f9ff;
@@ -248,20 +246,21 @@ a {
     gap: 12px;
 }
 
-.input-group {
+.input-user_group {
     display: flex;
     flex-direction: column;
     gap: 6px;
     width: 100%;
 }
 
-.input-group label {
+.input-user_group label {
     font-weight: 700;
     font-size: 13px;
     color: #075985;
 }
 
-.input, select {
+.input,
+select {
     height: 44px;
     border: 1px solid #bae6fd;
     border-radius: 8px;
@@ -269,9 +268,9 @@ a {
     background: #fff;
     color: #0c4a6e;
     width: 100%;
-    font-size: 16px; 
+    font-size: 16px;
 }
-#topic{
+#topic {
     display: none;
 }
 .submit {
@@ -288,13 +287,11 @@ a {
     display: none;
 }
 
-
 .wrap {
     width: 100%;
     margin: 0;
     padding: 16px;
 }
-
 
 .masonry {
     column-count: 1;
@@ -440,7 +437,9 @@ a {
     font-weight: 700;
     color: #0c4a6e;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
+    transition:
+        background 0.2s,
+        color 0.2s;
 }
 
 .dropdown-menu a:hover {
@@ -504,7 +503,9 @@ a {
     resize: vertical;
     background: #fff;
     color: #0c4a6e;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
 }
 
 .modal-content textarea:focus {
@@ -521,7 +522,9 @@ a {
     border-radius: 8px;
     padding: 12px 24px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
+    transition:
+        background 0.2s,
+        transform 0.1s;
     width: 100%;
     font-size: 16px;
 }
@@ -580,17 +583,17 @@ a {
     grid-template-columns: 60px 1fr;
     gap: 12px;
     align-items: center;
-    }
-  .no-style-btn:hover {
+}
+.no-style-btn:hover {
     color: #0284c7;
-  }
-  
-  .dropdown {
+}
+
+.dropdown {
     margin-left: auto;
     z-index: 20;
-  }
-  
-  .dropdown-menu {
+}
+
+.dropdown-menu {
     display: none;
     position: absolute;
     right: 0;
@@ -600,33 +603,34 @@ a {
     border-radius: 12px;
     min-width: 140px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    z-index: 99999 !important; 
-/* overflow: hidden; */
-  }
-  
-  .dropdown-menu a {
+    z-index: 99999 !important;
+    /* overflow: hidden; */
+}
+
+.dropdown-menu a {
     display: block;
     padding: 10px 14px;
     font-size: 14px;
     font-weight: 700;
     color: #0c4a6e;
     text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-  
-  .dropdown-menu a:hover {
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.dropdown-menu a:hover {
     background: #e0f2fe;
     color: #0284c7;
-  }
-  
-  .dropdown-menu a.delete {
+}
+
+.dropdown-menu a.delete {
     color: #dc2626;
-  }
-  .dropdown-menu a.delete:hover {
+}
+.dropdown-menu a.delete:hover {
     background: #fee2e2;
     color: #b91c1c;
-  }
-
+}
 
 .avatar {
     width: 60px;
@@ -695,84 +699,85 @@ a {
     body {
         font-size: 16px;
     }
-    
+
     .header a {
         font-size: 11px;
         padding: 6px 8px;
         min-width: 50px;
     }
-    
+
     .header a img {
         width: 22px;
         height: 22px;
     }
-    
+
     .timeline {
         font-size: 20px;
         padding-left: 20px;
     }
-    
+
     .pagehead .container {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-end;
         padding: 14px 16px;
     }
-    
+
     .pagehead .title {
         font-size: 22px;
     }
-    
+
     .pagehead .sub {
         font-size: 14px;
     }
-    
+
     .toolbar .bar {
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
         padding: 10px 16px;
     }
-    
-    .input-group {
+
+    .input-user_group {
         flex-direction: row;
         align-items: center;
         width: auto;
         gap: 8px;
     }
-    
-    .input, select {
+
+    .input,
+    select {
         width: auto;
         min-width: 140px;
         font-size: 14px;
     }
-    
+
     .submit {
         width: auto;
         font-size: 14px;
         display: none;
     }
-    
+
     .masonry {
         column-count: 2;
     }
-    
+
     .profile {
         grid-template-columns: 72px 1fr auto;
         margin: 18px auto;
         max-width: min(1000px, 96vw);
     }
-    
+
     .avatar {
         width: 72px;
         height: 72px;
     }
-    
+
     .profile .edit-btn {
         grid-column: auto;
         margin-top: 0;
     }
-    
+
     .stats {
         margin: 10px auto 0;
         max-width: min(1000px, 96vw);
@@ -786,39 +791,39 @@ a {
         padding: 8px 12px;
         min-width: 60px;
     }
-    
+
     .header a img {
         width: 24px;
         height: 24px;
         margin-bottom: 4px;
     }
-    
+
     .headermenu {
         gap: 15px;
     }
-    
+
     .timeline {
         font-size: 22px;
         padding-left: 30px;
     }
-    
+
     .wrap {
         padding: 20px;
     }
-    
+
     .masonry {
         column-count: 3;
     }
-    
+
     .modal-content {
         max-width: 480px;
         padding: 24px;
     }
-    
+
     .modal-content textarea {
         font-size: 14px;
     }
-    
+
     .modal-content .btn {
         width: auto;
         padding: 8px 18px;
@@ -832,7 +837,7 @@ a {
     .toolbar .bar {
         max-width: min(1600px, 98vw);
     }
-    
+
     .masonry {
         column-count: 4;
     }

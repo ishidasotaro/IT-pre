@@ -97,14 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="username" class="block font-semibold text-gray-500 text-sm mb-1">ユーザー名</label>
         <input type="text" name="username" id="username" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100 placeholder-gray-400" placeholder="ユーザー名" required>
       </div>
-      <!-- POSSE所属選択 -->
+      <!-- 所属グループ選択 -->
       <div class="mb-4">
-        <label for="posse_group" class="block font-semibold text-gray-500 text-sm mb-1">所属POSSE</label>
-        <select name="posse_group" id="posse_group" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100" required>
+        <label for="user_group" class="block font-semibold text-gray-500 text-sm mb-1">所属グループ</label>
+        <select name="user_group" id="user_group" class="border w-full p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#3A96D0] bg-gray-100" required>
           <option value="" disabled selected>選択してください</option>
-          <option value="POSSE_1">POSSE ①</option>
-          <option value="POSSE_2">POSSE ②</option>
-          <option value="POSSE_3">POSSE ③</option>
+          <option value="user_group_1">user_group①</option>
+          <option value="user_group_2">user_group②</option>
+          <option value="user_group_3">user_group③</option>
         </select>
       </div>
       <!-- パスワード入力 -->
