@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // ユーザー情報を取得
-$user_sql = "SELECT name, posse_group FROM users WHERE id = :user_id";
+$user_sql = "SELECT name, user_group FROM users WHERE id = :user_id";
 $user_stmt = $pdo->prepare($user_sql);
 $user_stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
 $user_stmt->execute();
@@ -38,7 +38,7 @@ $posts_sql = "SELECT p.*, t.name AS topic_name, COUNT(r.id) AS reaction_count
               LEFT JOIN topics t ON p.topic_id = t.id
               LEFT JOIN reactions r ON p.id = r.post_id
               WHERE p.user_id = :user_id
-              GROUP BY p.id
+              user_group BY p.id
               ORDER BY p.created_at DESC";
 $posts_stmt = $pdo->prepare($posts_sql);
 $posts_stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
@@ -101,7 +101,7 @@ $posts = $posts_stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div>
                     <h2 class="text-2xl font-bold text-[#284682]"><?php echo htmlspecialchars($user['name']); ?></h2>
-                    <span class="text-sm text-gray-500"><?php echo htmlspecialchars($user['posse_group']); ?></span>
+                    <span class="text-sm text-gray-500"><?php echo htmlspecialchars($user['user_group']); ?></span>
                 </div>
             </div>
             <a href="profile_edit.php" class="bg-[#3A96D0] text-white py-2 px-4 rounded-full font-bold hover:bg-[#284682] transition duration-300">編集</a>
